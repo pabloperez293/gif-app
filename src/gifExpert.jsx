@@ -1,6 +1,7 @@
 // import React from 'react'
 // desde la version 17 no hace falta que importemos react
 import { useState } from 'react';
+import { AddCategory } from './components/AddCategory';
 
 export const GifExpert = () => {
 
@@ -21,6 +22,7 @@ export const GifExpert = () => {
     <h2>GifExpert</h2>
 
     {/* input */}
+    <AddCategory/>
 
     {/* Listado de tarjetas */}
     <button onClick={ onAddCategory }> Agregar </button>
