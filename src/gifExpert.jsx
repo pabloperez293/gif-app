@@ -10,32 +10,48 @@ export const GifExpert = () => {
 
     // console.log(categories);
 
-    const onAddCategory = () =>{
+    const onAddCategory = ( NewCategory ) =>{
+
+    // este if lo que realiza es que no se repita el mismo heroe con la mismas latras
+        if( categories.includes(NewCategory) )return;
+
+        setCategories( [ NewCategory, ...categories ])
+
+        // categories.push(NewCategory);
         // console.log("marvel")
         // setCategories([...categories,"iron-man"]); para agregar elemnt a un array
-        setCategories( cat => [ ...cat, "Cap"])
+        // setCategories(cat =>[ ...cat, "flamabebe"])
+
+        // de las opciones que tenemos arriba se puede llamar de cualquier manera.
+
     }
 
   return (
     <>
-    {/* titulo */}
-    <h2>GifExpert</h2>
+        {/* titulo */}
+        <h2>GifExpert</h2>
 
-    {/* input */}
-    <AddCategory/>
+        {/* input */}
+        <AddCategory 
+        //setCategories={ setCategories }
+        onNewCategory = { event => onAddCategory(event) }
 
-    {/* Listado de tarjetas */}
-    <button onClick={ onAddCategory }> Agregar </button>
+        />
 
-    <ol>
-    {/* con el arreglo de linea 8 , hace un conteo colocandolos en el html */}
-        { categories.map( categories => { 
-            return <li key={ categories }> { categories } </li>
-        }) }
+        {/* Listado de tarjetas */}
 
-    </ol>
+        {/* <button onClick={ onAddCategory }> Agregar </button> */}
 
-        {/* Item tarjetas */}
+        <ol>
+            {/* con el arreglo de linea 8 , hace un conteo colocandolos en el html */}
+            { categories.map( categories => { 
+                return <li key={ categories }> { categories } </li>
+                }) 
+            }
+
+        </ol>
+
+            {/* Item tarjetas */}
     </>
   )
 }
